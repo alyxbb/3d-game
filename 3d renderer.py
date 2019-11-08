@@ -2,13 +2,13 @@ import turtle
 import time
 from math import cos, sin
 from random import randint
-
+screen=turtle.Screen()
 fov = 100
 counter = 0
 t = turtle.Turtle()
 t.hideturtle()
 t.speed(0)
-t.tracer(0, 0)
+screen.tracer(0, 0)
 
 nodes = [[-1, -1, -1], [-1, -1, 1], [-1, 1, -1], [-1, 1, 1], [1, -1, -1], [1, -1, 1], [1, 1, -1], [1, 1, 1]]
 
@@ -54,7 +54,7 @@ def toactualpos(x, y, z):
 
 while True:
     renderframe()
-    counter += 270
+    counter += 0.02
     t.pensize(20)
-    t.pencolor(randint(1, 255), randint(1, 255), randint(1, 255))
-    t.update()
+    t.pencolor("red")
+    screen.update()
