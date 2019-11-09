@@ -1,10 +1,14 @@
 from math import sin, cos
 import turtlemanager
+import movementmanager
 
 
 
 def toactualpos(x, y, z):
-    f = turtlemanager.fov / (z + 2)
+    try:
+        f = turtlemanager.fov / (z+2)
+    except ZeroDivisionError:
+        f=0
     sx = x * f
     sy = y * f
     return sx, sy
