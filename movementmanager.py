@@ -1,23 +1,24 @@
 import turtlemanager
 
-playerzpos=0
-playerxpos=0
-playerypos=0
+playerzpos = 0
+playerxpos = 0
+playerypos = 0
+
+
 def processmovement():
-    global playerzpos,playerxpos,playerypos
+    global playerzpos, playerxpos, playerypos
     if w_key.down:
         playerzpos += 1
     if s_key.down:
         playerzpos -= 1
     if a_key.down:
-        playerxpos +=1
+        playerxpos += 1
     if d_key.down:
-        playerxpos -=1
+        playerxpos -= 1
     if q_key.down:
-        playerypos +=1
+        playerypos += 1
     if e_key.down:
-        playerypos -=1
-
+        playerypos -= 1
 
 
 class WatchedKey:
@@ -32,6 +33,8 @@ class WatchedKey:
 
     def release(self):
         self.down = False
+
+
 w_key = WatchedKey('w')
 a_key = WatchedKey('a')
 s_key = WatchedKey('s')
