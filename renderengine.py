@@ -4,9 +4,14 @@ import movementmanager
 import time
 
 
-while True:
-    turtlemanager.screen.tracer(0,0)
-    movementmanager.processmovement()
+def mainloop():
+    turtlemanager.t.clear()
+    movementmanager.processmovement()   
     shapes.drawcuboid([1,1,1],[0,0,0])
     turtlemanager.screen.update()
-    time.sleep(2)
+    turtlemanager.screen.ontimer(mainloop,0)
+
+
+mainloop()
+
+turtlemanager.screen.mainloop()

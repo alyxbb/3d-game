@@ -5,13 +5,15 @@ import movementmanager
 
 
 def toactualpos(x, y, z):
-    try:
-        f = turtlemanager.fov / (z+2)
-    except ZeroDivisionError:
-        f=0
-    sx = x * f
-    sy = y * f
-    return sx, sy
+    calcz=z+(movementmanager.playerzpos/20)
+    if calcz<=0:
+        return 0,0,False
+    f = turtlemanager.fov / calcz
+
+
+    sx = (x+(movementmanager.playerxpos/20)) * f
+    sy = (y+(movementmanager.playerypos/20)) * f
+    return sx, sy,True
 
 
 def rotate(x, y, r):
@@ -26,4 +28,6 @@ def gotopoint(point,nodes):
     y = item[1]
     z = item[2]
     x, z = rotate(x, z, 0)
-    turtlemanager.t.goto(toactualpos(x, y, z))
+    acx,acy,render=toactualpos(x,y,z)
+    if render:
+        turtlemanager.t.goto(acx,acy)
